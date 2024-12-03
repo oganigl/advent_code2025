@@ -5,8 +5,7 @@
 #include <string>
 #include <cmath>
 #include <cstring>
-int dont = 0;
-int does=0;
+
 int int_to_char(std::string number){
     int num = 0;
     for(int i = 0; i < number.size(); i++){
@@ -46,19 +45,14 @@ void check_line(std::string& line,long unsigned int& result,bool& enable){
     std::string temp,temp_disable;
     int pos_ini;
     int final_pos;
-    std::cout<<enable<<std::endl;
     for (size_t i = 0; i < line.size(); i++){
         temp = line.substr(i,4);
         temp_disable = line.substr(i,7);
-        if(temp == enable_mult){
-            if(!enable)std::cout<<!enable<<std::endl;
+        if(!enable && temp == enable_mult){
             enable = true;
-            does++;
         }
-        if(temp_disable == disable_mul){
-            if(enable)std::cout<<!enable<<std::endl;
+        if(enable && temp_disable == disable_mul){
             enable = false;
-            dont++;
         }
         if(enable && temp == mul){
             pos_ini = i;
@@ -70,8 +64,6 @@ void check_line(std::string& line,long unsigned int& result,bool& enable){
             }
         }
     }
-    std::cout<<"do:"<<does<<std::endl;
-    std::cout<<"dont: "<<dont<<std::endl;
 }
 int main() {
     std::ifstream file("day3_puzzle");
