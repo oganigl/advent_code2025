@@ -72,7 +72,6 @@ int main() {
         return 1;
     }
 
-    std::vector<std::vector<int>> reports;
     std::string line;
     long unsigned int result = 0;
     bool enable=true;

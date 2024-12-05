@@ -63,8 +63,6 @@ int main() {
         std::cerr << "Error opening the file!" << std::endl;
         return 1;
     }
-
-    std::vector<std::vector<int>> reports;
     std::string line;
     long unsigned int result = 0;
     while (std::getline(file, line)) {
