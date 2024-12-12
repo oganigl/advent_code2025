@@ -56,11 +56,8 @@ int main() {
 
     uint64_t MAX_SIZE = stones.max_size();
     uint64_t part_number1, part_number2;
-
+    std::unordered_map<uint64_t,uint64_t> temporal;
     for (int i = 0; i < 75; i++) {
-        std::cout << "Iteration: " << i << "\n";
-        //print(stones);
-        std::unordered_map<uint64_t,uint64_t> temporal;
         for (const auto& [key, value] : stones) {
             if (key == 0) {
                 temporal[1] += value; 
@@ -72,6 +69,7 @@ int main() {
             }
         }
         stones = temporal;
+        temporal.clear();
     }
 
     // Calcular el resultado sumando todos los valores de las piedras
